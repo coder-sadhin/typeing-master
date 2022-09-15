@@ -133,6 +133,10 @@ body {
   margin: 30px 0;
 }
 
+#refresh {
+  margin-left: 10px;
+}
+
 button {
   padding: 10px 20px;
   border: none;
@@ -148,17 +152,19 @@ button {
 }
 
 #histories {
-  display: flex;
-  flex-direction: column-reverse;
+  width: 100%;
+  display: inline-flex;
   flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: row-reverse;
   justify-content: space-around;
 }
 
 .card {
-  width: 100%;
+  width: 30%;
   height: 100%;
-  padding: 50px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
@@ -191,6 +197,17 @@ button {
   }
 
   .card {
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  #histories {
+    flex-direction: column-reverse;
   }
 }
