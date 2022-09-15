@@ -1,4 +1,11 @@
 const histories = document.getElementById("histories");
+const clearHistory = document.getElementById("clear-history");
+
+//clear btn for history
+clearHistory.addEventListener('click', function () {
+  localStorage.clear();
+  displayHistory();
+})
 
 function addHistory(questionText, timeTaken, errorCount) {
   const newRow = document.createElement("div");
