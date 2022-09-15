@@ -104,6 +104,7 @@ const gameOver = () => {
 const closeModal = () => {
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
+  refreshBtn.disabled = false;
 };
 
 const start = () => {
@@ -131,7 +132,10 @@ const start = () => {
 };
 
 // START Countdown
-startBtn.addEventListener('click', start);
+startBtn.addEventListener('click', function () {
+  start();
+  refreshBtn.disabled = true;
+});
 
 // If history exists, show it
 displayHistory();
