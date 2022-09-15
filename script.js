@@ -4,6 +4,7 @@ const startBtn = document.getElementById("starts");
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
+const refreshBtn = document.getElementById("refresh");
 
 // variables
 let userText = "";
@@ -12,12 +13,17 @@ let startTime;
 let questionText = "";
 
 // Load and display question
-fetch("./texts.json")
-  .then((res) => res.json())
-  .then((data) => {
-    questionText = data[Math.floor(Math.random() * data.length)];
-    question.innerHTML = questionText;
-  });
+const questionLoader = () => {
+  fetch("./texts.json")
+    .then((res) => res.json())
+    .then((data) => {
+      questionText = data[Math.floor(Math.random() * data.length)];
+      question.innerHTML = questionText;
+    });
+}
+questionLoader();
+// refresh the qustions with btn loader
+refreshBtn.addEventListener('click', questionLoader)
 
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
